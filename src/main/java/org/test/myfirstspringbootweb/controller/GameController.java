@@ -1,6 +1,8 @@
+
 package org.test.myfirstspringbootweb.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.test.myfirstspringbootweb.service.GameService;
 import org.test.myfirstspringbootweb.model.GameDto;
@@ -11,6 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/games")
+@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 public class GameController {
 
     private final GameService gameService;
@@ -37,6 +40,7 @@ public class GameController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteGame(@PathVariable Long id) {
         gameService.deleteGame(id);
         return "Game Deleted!";

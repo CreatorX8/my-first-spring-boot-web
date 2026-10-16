@@ -1,5 +1,6 @@
 package org.test.myfirstspringbootweb.testing;
 
+import org.springframework.test.context.TestPropertySource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import org.test.myfirstspringbootweb.service.GameService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@TestPropertySource(properties = {
+        "app.security.admin-email=bryanxavier8@gmail.com"
+})
 class GameIntegrationTest {
 
     @Autowired

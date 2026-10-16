@@ -9,3 +9,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.H2Dialect
+
+  app:
+    security:
+      google-client-id: 616649718379-udqddisrmtuvmg43dpjdtm74i79hgaum.apps.googleusercontent.com
+      admin-email: bryanxavier8@gmail.com
